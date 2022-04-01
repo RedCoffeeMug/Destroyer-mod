@@ -22,7 +22,7 @@ public class Bullets implements ContentList {
     @Override
     public void load() {
 
-        bigBasicBullet = new BasicBulletType(8f, 85f){{
+        bigBasicBullet = new BasicBulletType(8f, 90f){{
             status = StatusEffects.unmoving;
             statusDuration = 60f;
             collidesAir = false;
@@ -37,7 +37,7 @@ public class Bullets implements ContentList {
             trailColor = Color.gold;
 
             frontColor = Color.black;
-            backColor = Color.black;
+            backColor = Color.gold;
             width = 8f;
             height = 16f;
             knockback = 0f;

@@ -32,11 +32,11 @@ public class ModBlocks implements ContentList {
             rotateSpeed = 250;
             acceptCoolant = false;
             targetAir = false;
-            size = 3;
+            size = 4;
             range = 400;
             minRange = 15;
             health = 600;
-            reloadTime = 180f;
+            reloadTime = 60f;
             ammoUseEffect = Fx.casing3;
             description = "A turret that shoots giant bullets and causes mini earthquakes to stop enemys.";
 
