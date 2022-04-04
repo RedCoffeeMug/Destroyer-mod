@@ -35,7 +35,7 @@ public class Bullets implements ContentList {
             lifetime = 360f;
             lightColor = Color.gold;
             trailColor = Color.gold;
-            trailWidth = 5f;
+            trailWidth = 5;
 
             frontColor = Color.black;
             backColor = Color.gold;

@@ -11,7 +11,6 @@ import mindustry.type.Item;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
-import mindustry.world.blocks.defense.turrets.ItemTurret;
 
 import static mindustry.type.ItemStack.with;
 
