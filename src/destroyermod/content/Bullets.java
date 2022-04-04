@@ -10,11 +10,11 @@ import mindustry.entities.bullet.BulletType;
 import mindustry.gen.Bullet;
 import mindustry.gen.ElevationMovec;
 import mindustry.entities.bullet.BasicBulletType;
-
+import mindustry.type.StatusEffect;
 
 
 public class Bullets implements ContentList {
-    public static BulletType bigBasicBullet;
+    public static BulletType bigBasicBullet, smallBasicBullet; //artillery
 
 
 
@@ -31,10 +31,11 @@ public class Bullets implements ContentList {
             inaccuracy = 0.8f;
             splashDamageRadius = 2f;
             splashDamage = 5f;
-            hitShake = 1f;
+            hitShake = 15f;
             lifetime = 360f;
             lightColor = Color.gold;
             trailColor = Color.gold;
+            trailWidth = 5f;
 
             frontColor = Color.black;
             backColor = Color.gold;
@@ -43,6 +44,27 @@ public class Bullets implements ContentList {
             knockback = 0f;
             hitEffect = Fx.explosion;
             shootEffect = Fx.shootBig2;
+            scaleVelocity = true;
+
+        }};
+
+        smallBasicBullet = new BasicBulletType(15f, 85){{
+            collidesGround = false;
+            collidesAir = true;
+            reflectable = false;
+            inaccuracy = 0.5f;
+            splashDamageRadius = 0.5f;
+            splashDamage = 2f;
+            hitShake = 1f;
+            lifetime = 360f;
+            lightColor = Color.lightGray;
+            frontColor = Color.gray;
+            backColor = Color.darkGray;
+            width = 5f;
+            height = 10f;
+            knockback = 0f;
+            hitEffect = Fx.hitBulletSmall;
+            shootEffect = Fx.shootSmall;
             scaleVelocity = true;
 
         }};
