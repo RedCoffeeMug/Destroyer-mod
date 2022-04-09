@@ -14,7 +14,7 @@ import mindustry.type.StatusEffect;
 
 
 public class Bullets implements ContentList {
-    public static BulletType bigBasicBullet, smallBasicBullet; //artillery
+    public static BulletType bigBasicBullet, smallBasicBullet;
 
 
 
@@ -22,15 +22,15 @@ public class Bullets implements ContentList {
     @Override
     public void load() {
 
-        bigBasicBullet = new BasicBulletType(8f, 90f){{
+        bigBasicBullet = new BasicBulletType(8f, 100f){{
             status = StatusEffects.unmoving;
             statusDuration = 60f;
             collidesAir = false;
             collidesGround = true;
             reflectable = false;
             inaccuracy = 0.8f;
-            splashDamageRadius = 2f;
-            splashDamage = 5f;
+            splashDamageRadius = 10f;
+            splashDamage = 20f;
             hitShake = 15f;
             lifetime = 360f;
             lightColor = Color.gold;
@@ -48,7 +48,7 @@ public class Bullets implements ContentList {
         }};
 
         smallBasicBullet = new BasicBulletType(15f, 85){{
-            collidesGround = false;
+            collidesGround = true;   //note to self: if this doesn't work change it to false
             collidesAir = true;
             reflectable = false;
             inaccuracy = 0.5f;
@@ -61,7 +61,7 @@ public class Bullets implements ContentList {
             backColor = Color.darkGray;
             width = 5f;
             height = 10f;
-            knockback = 0f;
+            knockback = 1f;
             hitEffect = Fx.hitBulletSmall;
             shootEffect = Fx.shootSmall;
             scaleVelocity = true;
