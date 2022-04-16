@@ -83,6 +83,7 @@ public class Blocks implements ContentList {
 
         protaReconstructor = new Reconstructor("prota-reconstructor"){{
             localizedName = "[orange]Prota Reconstructor";
+            description = "Reconstructs tier 1 units into tier 2 units.";
             requirements(Category.units, with(Items.silicon, 250, Items.lead, 350, Items.titanium, 150));
 
             size = 3;
