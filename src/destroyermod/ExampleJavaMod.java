@@ -3,6 +3,7 @@ package destroyermod;
 import arc.util.*;
 import destroyermod.content.Bullets;
 import destroyermod.content.Blocks;
+import destroyermod.content.Units;
 import mindustry.mod.*;
 
 public class ExampleJavaMod extends Mod{
@@ -16,6 +17,7 @@ public class ExampleJavaMod extends Mod{
     @Override
     public void loadContent(){
         new Bullets().load();
+        new Units().load();
         new Blocks().load();
         Log.info("Loading some example content.");
     }
