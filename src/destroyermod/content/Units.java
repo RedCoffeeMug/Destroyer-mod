@@ -79,13 +79,13 @@ public class Units implements ContentList {
             description = "A ground unit that does not attack but acts as a shield to other units";
 
             health = 550f;
-            armor = 3f;
+            armor = 5f;
             flying = false;
             canDrown = true;
-            speed = 2f;
+            speed = 0.8f;
             hitSize = 8f;
             range = 90f;
-            rotateSpeed = 5f;
+            rotateSpeed = 2f;
         }};
 
 
