@@ -10,9 +10,9 @@ import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 
 public class Units implements ContentList {
-    public static UnitType colony, barrier,  //tier 1 units
+    public static UnitType colony, barrier, error,  //tier 1 units
 
-            swarm;  //tier 2 units
+            swarm, barricade;  //tier 2 units
 
     @Override
     public void load() {
@@ -29,7 +29,7 @@ public class Units implements ContentList {
             speed = 5.5f;
             drag = 0.7f;
             hitSize = 5f;
-            range = 90;
+            range = 140;
             rotateSpeed = 10f;
 
             weapons.add(new Weapon("colony-weapon"){{
@@ -49,22 +49,23 @@ public class Units implements ContentList {
             description = "A upgraded unit from Colony. Once killed this unit spawns in Colonys to help.";
 
             health = 450f;
-            armor = 0f;
+            armor = 2f;
             flying = true;
             canDrown = false;
             speed = 7f;
             drag = 0.7f;
-            hitSize = 9f;
-            range = 90f;
+            hitSize = 20f;
+            range = 135f;
             rotateSpeed = 10f;
 
             child = colony;
-            childNum = 3;
+            childNum = 1;
 
             weapons.add(new Weapon("swarm-weapon"){{
                 reload = 15f;
                 x = 0f;
                 y = 0f;
+                inaccuracy = 2f;
                 mirror = false;
                 recoil = 1f;
                 ejectEffect = Fx.casing1;
@@ -82,10 +83,25 @@ public class Units implements ContentList {
             armor = 5f;
             flying = false;
             canDrown = true;
-            speed = 0.8f;
+            speed = 1.5f;
             hitSize = 8f;
             range = 90f;
             rotateSpeed = 2f;
+        }};
+
+        barricade = new UnitType("barricade"){{
+            constructor = MechUnit::create;
+            localizedName = "[orange]Barricade";
+            description = "The upgraded unit of Barrier";
+
+            health = 750f;
+            armor = 15f;
+            flying = false;
+            canDrown = true;
+            speed = 1f;
+            hitSize = 17f;
+            range = 90f;
+            rotateSpeed = 0.8f;
         }};
 
 

@@ -2,11 +2,11 @@ package destroyermod.content;
 
 import mindustry.content.Fx;
 import mindustry.content.Items;
+import mindustry.content.Liquids;
 import mindustry.content.UnitTypes;
 import mindustry.ctype.ContentList;
-import mindustry.type.Category;
-import mindustry.type.Item;
-import mindustry.type.UnitType;
+import mindustry.type.*;
+import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.units.Reconstructor;
@@ -16,7 +16,11 @@ import static mindustry.type.ItemStack.with;
 
 
 public class Blocks implements ContentList {
-    public static Block groundBreaker, skyStriker, destroyerFactory, protaReconstructor;
+    public static Block groundBreaker, skyStriker,  //turrets
+
+    destroyerFactory, protaReconstructor, defenseReconstructor, attackReconstructor, //units
+
+    freezer, iceMelter;    //crafters
 
 
     @Override
@@ -89,12 +93,59 @@ public class Blocks implements ContentList {
             size = 3;
             consumes.power(5f);
             consumes.items(with(Items.silicon, 60, Items.titanium, 55));
+            health = 300;
 
-            constructTime = 60f;
+            constructTime = 65f * 10f;
 
             upgrades.addAll(
-                    new UnitType[]{Units.colony, Units.swarm}
+                    new UnitType[]{Units.colony, Units.swarm},
+                    new UnitType[]{Units.barrier, Units.barricade}
             );
+        }};
+
+        defenseReconstructor = new Reconstructor("defense-reconstructor"){{
+            localizedName = "[orange]Defense Reconstructor";
+            description = "Reconstructs units in a way that makes their defense better";
+            requirements(Category.units, with(Items.silicon, 260, Items.lead, 375, Items.titanium, 200));
+
+            size = 5;
+            consumes.power(10f);
+            consumes.items(with(Items.silicon, 100, Items.titanium, 80, Items.metaglass, 75));
+            health = 400;
+
+            constructTime = 70f * 30f;
+        }};
+
+        freezer = new GenericCrafter("freezer"){{
+            localizedName = "[cyan]Freezer";
+            description = "A crafter that takes in water and comes out with ice";
+            requirements(Category.crafting, with(Items.lead, 40, Items.copper, 50, Items.graphite, 55));
+
+            size = 2;
+            craftTime = 50;
+            health = 200;
+
+            consumes.power(18);
+            consumes.liquid(Liquids.water, 3);  //input
+            outputItem = new ItemStack(ModItems.ice, 2);  //output
+
+        }};
+
+        iceMelter = new GenericCrafter("ice-melter"){{
+            localizedName = "[cyan]Ice Melter";
+            description = "Melts down ice into water";
+            requirements(Category.crafting, with(Items.lead, 40, Items.copper, 50, Items.graphite, 50));
+
+            size = 2;
+            craftTime = 50;
+            health = 200;
+            hasLiquids = true;
+            solid = true;
+            outputsLiquid = true;
+
+            consumes.power(18);
+            consumes.item(ModItems.ice, 1);
+            outputLiquid = new LiquidStack(Liquids.water, 3.1f);
         }};
 
 
