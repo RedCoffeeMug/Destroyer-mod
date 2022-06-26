@@ -43,10 +43,10 @@ public class Units implements ContentList {
 
         }};
 
-        swarm = new NestedUnitType("swarm"){{
-            constructor = NestedFlying::create;
+        swarm = new UnitType("swarm"){{
+            constructor = UnitEntity::create;
             localizedName = "[orange]Swarm";
-            description = "A upgraded unit from Colony. Once killed this unit spawns in Colonys to help.";
+            description = "A upgraded unit from Colony, almost the same but size, health, and speed change";
 
             health = 450f;
             armor = 2f;
@@ -58,8 +58,6 @@ public class Units implements ContentList {
             range = 135f;
             rotateSpeed = 10f;
 
-            child = colony;
-            childNum = 1;
 
             weapons.add(new Weapon("swarm-weapon"){{
                 reload = 15f;

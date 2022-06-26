@@ -18,7 +18,7 @@ import static mindustry.type.ItemStack.with;
 public class Blocks implements ContentList {
     public static Block groundBreaker, skyStriker,  //turrets
 
-    destroyerFactory, protaReconstructor, defenseReconstructor, attackReconstructor, //units
+    destroyerFactory, firstReconstructor, defenseReconstructor, attackReconstructor, //units
 
     freezer, iceMelter;    //crafters
 
@@ -85,8 +85,8 @@ public class Blocks implements ContentList {
             plans.add(new UnitPlan(Units.barrier, 350, with(Items.silicon, 300, Items.titanium, 250)));
         }};
 
-        protaReconstructor = new Reconstructor("prota-reconstructor"){{
-            localizedName = "[orange]Prota Reconstructor";
+        firstReconstructor = new Reconstructor("first-reconstructor"){{
+            localizedName = "[orange]First Reconstructor";
             description = "Reconstructs tier 1 units into tier 2 units.";
             requirements(Category.units, with(Items.silicon, 250, Items.lead, 350, Items.titanium, 150));
 
@@ -111,6 +111,20 @@ public class Blocks implements ContentList {
             size = 5;
             consumes.power(10f);
             consumes.items(with(Items.silicon, 100, Items.titanium, 80, Items.metaglass, 75));
+            health = 400;
+
+            constructTime = 70f * 30f;
+        }};
+
+        attackReconstructor = new Reconstructor("attack-reconstructor"){{
+            localizedName = "[orange]Attack Reconstructor";
+            description = "Reconstructs units to make their attack better";
+            requirements(Category.units, with(Items.silicon
+            , 260, Items.lead, 375, Items.titanium, 200));
+
+            size = 5;
+            consumes.power(10f);
+            consumes.items(with(Items.silicon, 110, Items.titanium, 80, Items.metaglass, 75));
             health = 400;
 
             constructTime = 70f * 30f;
