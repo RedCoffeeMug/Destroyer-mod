@@ -27,7 +27,7 @@ A flying unit that works better in groups.
 ![Swarm](https://raw.githubusercontent.com/SomeCoder1/Destroyer-mod/master/assets/sprites/units/swarm.png)
 Swarm.
 
-An upgraded unit from Colony. Once killed this unit spawns in Colonys to help.
+An upgraded unit from Colony.
 
 ![Barrier](https://raw.githubusercontent.com/SomeCoder1/Destroyer-mod/master/assets/sprites/units/barrier.png)
 Barrier. 
